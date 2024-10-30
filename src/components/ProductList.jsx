@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import { useCart } from '../CartContext';
+import { useCart } from '../context/CartContext';
 
 const ProductList = () => {
     const { products, openModal, handleAddToCart } = useCart();

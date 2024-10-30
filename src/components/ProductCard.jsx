@@ -2,19 +2,12 @@ import React from 'react';
 
 const ProductCard = ({ product, openModal, handleAddToCart }) => {
     return (
-        <div
-            className="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex flex-col justify-between h-full w-full max-w-xs relative cursor-pointer"
-            onClick={() => openModal(product)}
-        >
-            <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-52 object-cover mb-4 rounded-lg"
-            />
+        <div className="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex flex-col justify-between h-full w-full max-w-xs relative cursor-pointer" onClick={() => openModal(product)}>
+            <img src={product.image} alt={product.title} className="w-full h-52 object-cover mb-4 rounded-lg transition-transform duration-300 transform hover:scale-105" />
             <div className="flex-grow">
                 <h2 className="text-lg font-semibold text-gray-800 mb-1 truncate">{product.title}</h2>
                 <div className="flex items-center mb-2">
-                    {[...Array(5)].map((_, i) => (
+                    {Array(5).fill().map((_, i) => (
                         <svg
                             key={i}
                             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +25,10 @@ const ProductCard = ({ product, openModal, handleAddToCart }) => {
                 <p className="text-gray-600 mb-4">{product.description.length > 60 ? `${product.description.substring(0, 60)}...` : product.description}</p>
             </div>
             <button
-                onClick={(e) => { e.stopPropagation(); handleAddToCart(product); }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    handleAddToCart(product);
+                }}
                 className="bg-blue-600 text-white py-2 px-4 mt-4 rounded-lg hover:bg-blue-700 w-full font-medium transition-all duration-300"
             >
                 Add to Cart

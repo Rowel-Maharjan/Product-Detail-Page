@@ -1,8 +1,8 @@
 import React from 'react';
-import { useCart } from '../CartContext';
+import { useCart } from '../context/CartContext';
 
 const CartSidebar = () => {
-    const { isCartOpen, toggleCart, cartItems, updateQuantity, removeFromCart } = useCart();
+    const { isCartOpen, toggleCart, cartItems, updateQuantity, removeFromCart, calculateTotal } = useCart();
 
     return (
         <div className={`fixed top-0 right-0 w-96 h-full bg-white shadow-lg z-50 transition-transform duration-300 ${isCartOpen ? 'translate-x-0' : 'translate-x-full'} overflow-hidden`}>
@@ -43,6 +43,11 @@ const CartSidebar = () => {
                             </div>
                         ))
                     )}
+                </div>
+   
+                <div className="mt-4 flex justify-between items-center font-bold text-gray-800">
+                    <span>Total:</span>
+                    <span>${calculateTotal().toFixed(2)}</span> 
                 </div>
             </div>
         </div>

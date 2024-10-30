@@ -47,13 +47,20 @@ export const CartProvider = ({ children }) => {
     const updateQuantity = (id, quantity) => {
         if (quantity <= 0) {
             setCartItems(cartItems.filter(item => item.id !== id));
-        } else {
-            setCartItems(cartItems.map(item => item.id === id ? { ...item, quantity } : item));
+        } 
+        else{
+            setCartItems(cartItems.map(item => item.id === id? {...item, quantity: quantity}: item))
         }
     };
 
     const removeFromCart = (id) => {
         setCartItems(cartItems.filter(item => item.id !== id));
+    };
+
+    const calculateTotal = () => {
+        return cartItems.reduce((total,item)=>{
+            return total + item.quantity * item.price
+        },0)
     };
 
     return (
@@ -70,6 +77,7 @@ export const CartProvider = ({ children }) => {
             updateQuantity,
             removeFromCart,
             setShowFullDescription,
+            calculateTotal,
         }}>
             {children}
         </CartContext.Provider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCart } from '../CartContext';
+import { useCart } from '../context/CartContext';
 
 const ProductModal = () => {
     const { selectedProduct, closeModal, handleAddToCart, showFullDescription, setShowFullDescription } = useCart();
@@ -8,7 +8,7 @@ const ProductModal = () => {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-            <div className="bg-white rounded-lg gap-2 shadow-lg w-full md:w-2/3 lg:w-3/4 xl:w-1/2 flex flex-col md:flex-row relative p-10">
+            <div className="bg-white rounded-lg gap-2 shadow-lg w-full md:w-2/3 lg:w-3/4 xl:w-1/2 flex flex-col md:flex-row relative p-12">
                 <img
                     src={selectedProduct.image}
                     alt={selectedProduct.title}
