@@ -11,10 +11,8 @@ const CartSidebar = () => {
                     <h2 className="text-2xl font-bold text-gray-800">Shopping Cart</h2>
                     <button onClick={toggleCart} className="text-blue-500">Close</button>
                 </div>
-                <div className="overflow-y-auto h-[calc(100vh-120px)] scrollbar-hide mt-4">
-                    {cartItems.length === 0 ? (
-                        <p className="text-gray-600 text-center py-6">Your cart is empty</p>
-                    ) : (
+                <div className="overflow-y-auto h-[73vh] scrollbar-hide mt-4">
+                    {cartItems.length === 0 ? (<p className="text-gray-600 text-center py-6">Your cart is empty</p>):(
                         cartItems.map(item => (
                             <div key={item.id} className="flex items-center justify-between py-4 border-b">
                                 <div className="flex items-center space-x-4">
@@ -42,8 +40,11 @@ const CartSidebar = () => {
 
                 <div className="mt-4 flex justify-between items-center font-bold text-gray-800">
                     <span>Total:</span>
-                    <span>${calculateTotal().toFixed(2)}</span> 
+                    <span>${calculateTotal().toFixed(2)}</span>
                 </div>
+                <button className="bg-blue-600 text-white py-2 px-4 mt-4 rounded-lg hover:bg-blue-700 w-full font-medium transition-all duration-300">Buy Now</button>
+
+
             </div>
         </div>
     );
