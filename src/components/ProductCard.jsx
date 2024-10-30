@@ -24,15 +24,10 @@ const ProductCard = ({ product, openModal, handleAddToCart }) => {
                 <p className="text-gray-800 font-semibold text-lg mb-2">${product.price}</p>
                 <p className="text-gray-600 mb-4">{product.description.length > 60 ? `${product.description.substring(0, 60)}...` : product.description}</p>
             </div>
-            <button
-                onClick={(e) => {
-                    e.stopPropagation();
-                    handleAddToCart(product);
-                }}
-                className="bg-blue-600 text-white py-2 px-4 mt-4 rounded-lg hover:bg-blue-700 w-full font-medium transition-all duration-300"
-            >
-                Add to Cart
-            </button>
+            <button onClick={(e) => {
+                e.stopPropagation();
+                handleAddToCart(product);
+            }} className="bg-blue-600 text-white py-2 px-4 mt-4 rounded-lg hover:bg-blue-700 w-full font-medium transition-all duration-300">Add to Cart</button>
         </div>
     );
 };
